@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('nome');
             $table->text('descricao');
+            $table->float('preco');
             $table->integer('quantidade');
             $table->string('imagem');
             $table->foreignId('categoria_id')->constrained('categorias')->onDelete('cascade');
