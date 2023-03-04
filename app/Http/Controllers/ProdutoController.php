@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreProdutoRequest;
+use App\Http\Requests\UpdateProdutoRequest;
 use App\Models\Categoria;
 use App\Models\Produto;
 use Illuminate\Http\Request;
@@ -37,7 +38,7 @@ class ProdutoController extends Controller
 
     public function store(StoreProdutoRequest $request)
     {
-        $data = $request->all();
+        $data = $request->validated();
 
         $data['imagem'] = '/storage/' . $request->file('imagem')->store('produtos', 'public');
         $this->produtos->create($data);
@@ -63,9 +64,9 @@ class ProdutoController extends Controller
     }
 
 
-    public function update(StoreProdutoRequest $request, $id)
+    public function update(UpdateProdutoRequest $request, $id)
     {
-        $data = $request->all();
+        $data = $request->validated();
         $produto = $this->produtos->find($id);
 
         if ($request->hasFile('imagem')) {

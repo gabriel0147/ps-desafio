@@ -9,6 +9,7 @@ use App\Models\Categoria;
 use App\Models\Produto;
 use Database\Seeders\ProdutoSeeder;
 use App\Http\Requests\StoreCategoriaRequest;
+use App\Http\Requests\UpdateCategoriaRequest;
 
 class CategoriaController extends Controller
 {
@@ -46,9 +47,9 @@ class CategoriaController extends Controller
         return view('categoria.crud', compact('categoria'));
     }
 
-    public function update(StoreCategoriaRequest $request, $id)
+    public function update(UpdateCategoriaRequest $request, $id)
     {
-        $data = $request->all();
+        $data = $request->validated();
         $categoria = $this->categoria->find($id);
         $categoria->update($data);
 
