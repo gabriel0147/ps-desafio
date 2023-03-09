@@ -10,14 +10,16 @@ use App\Models\Produto;
 use Database\Seeders\ProdutoSeeder;
 use App\Http\Requests\StoreCategoriaRequest;
 use App\Http\Requests\UpdateCategoriaRequest;
+use Illuminate\Support\Facades\Storage;
 
 class CategoriaController extends Controller
 {
-
+    private $produtos;
     private $categoria;
 
-    public function __construct(Categoria $categoria)
+    public function __construct(Produto $produto, Categoria $categoria)
     {
+        $this->produtos = $produto;
         $this->categoria = $categoria;
     }
 
@@ -58,6 +60,11 @@ class CategoriaController extends Controller
 
     public function destroy($id)
     {
+        $produtos = $this->produtos->where('categoria_id', $id)->whereNotNull('imagem')->get();
+        foreach ($produtos as $produto) {
+            Storage::disk('public')->delete(str_replace('/storage', '', $produto->imagem));
+        }
+
         $categoria = $this->categoria->find($id);
         $categoria->delete();
 

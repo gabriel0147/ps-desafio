@@ -27,7 +27,7 @@ class StoreProdutoRequest extends FormRequest
             'nome' => ['required', 'min:3', 'max:100'],
             'descricao' => ['required', 'min:3', 'max:100'],
             'preco' => ['required', 'min:3', 'max:100'],
-            'quantidade' => ['required', 'min:1', 'max:100'],
+            'quantidade' => ['required', 'min:0', 'max:100'],
             'imagem' => 'mimes:jpg,bmp,pnwg',
             'categoria_id' => ['required', 'min:1', 'max:100'],
         ];
