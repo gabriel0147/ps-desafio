@@ -50,6 +50,13 @@ body {
     padding: 10px 40px;
 }
 
+.btn-novo-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 200px;
+    width: 200px;
+}
 #header-logo a {
     display: flex;
     align-items: center;
@@ -73,7 +80,7 @@ body {
     flex-wrap: nowrap;
     align-items: center;
     justify-content: flex-start;
-    width: 100%;
+    width: 20%;
 }
 
 .search input {
@@ -125,6 +132,7 @@ body {
 }
 
 hr {
+    padding-top: 90px;
     width: 100%;
     height: 8px;
     background: linear-gradient(
@@ -145,7 +153,7 @@ hr {
     width: 100vw;
     height: 100px;
     max-height: 100vh;
-    background-color: #00cc00;
+    background-color: #80ff80;
     color: white;
     padding: 10px 30px;
     bottom: 0;
@@ -183,6 +191,7 @@ hr {
     font-size: 20px;
     width: 50%;
     text-align: center;
+    color: black;
 }
 
 #redes-sociais {
@@ -221,6 +230,42 @@ hr {
 
 /* index */
 
+.nome-produtos h1 {
+    width: 100%;
+    display: flex;
+    margin: auto;
+    z-index: 100;
+    padding-left: 10px;
+}
+
+.nome-produtos {
+    width: 100%;
+    display: flex;
+    margin: auto;
+    z-index: 100;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left: 10px;
+}
+
+.select-container input {
+    width: 80px;
+    height: 20px;
+    border: 2px solid #74c365;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.select-container {
+    display: flex;
+    width: 100%;
+    height: 50px;
+    align-items: baseline;
+    flex-flow: column;
+}
+
 .produtos-container {
     display: flex;
     width: 100%;
@@ -240,6 +285,9 @@ hr {
     display: flex;
     width: 50%;
     height: 50%;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
 }
 
 .imagem-container img {
@@ -249,10 +297,14 @@ hr {
     height: 150px;
 }
 
-.produtos {
-    /* display: grid;
-    grid-template-columns: auto auto auto; */
+.imagem-container:hover img {
+    display: flex;
+    object-fit: scale-down;
+    height: 150px;
+    height: 150px;
+}
 
+.produtos {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -272,26 +324,66 @@ hr {
     margin: 25px;
 }
 
+.btnComprar {
+    cursor: pointer;
+}
+
+.quantidade {
+    display: contents;
+}
+
+.quantidade > input {
+    display: none;
+    width: 150px;
+    background-color: gray;
+}
+
+.quantidade button {
+    width: 70px;
+    border: 2px solid #74c365;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.card:hover .quantidade > input {
+    display: flex;
+}
+
+.info-produto {
+    display: contents;
+}
+
 .card-dark {
     background-color: gray;
     color: azure;
 }
 
+.card-dark .comprar {
+    background-color: #eceff1;
+}
+
 .card:hover {
     content: "";
-    background-color: black;
+    background-color: rgb(30, 29, 29);
     z-index: 200;
 }
 
 .card-dark:hover {
     content: "";
-    background-color: blue;
+    background-color: rgb(22, 19, 19);
     z-index: 200;
 }
 
-.card-dark:hover p {
+.card-dark:hover p,
+.card:hover p {
     z-index: 1;
     visibility: hidden;
+    display: none;
+}
+
+.color-dark {
+    background-color: #a9ba9d;
 }
 
 .descri {
@@ -303,6 +395,64 @@ hr {
 .card:hover .descri {
     visibility: visible;
     display: flex;
+    margin: 0 30px;
+}
+
+.card:hover img {
+    display: flex;
+    margin-top: auto;
+    width: 150px;
+    height: auto;
+    object-fit: contain;
+    margin-bottom: auto;
+}
+
+.comprar {
+    cursor: pointer;
+    border-radius: 10px;
+    width: 70px;
+    height: 20px;
+    background-color: gray;
+}
+
+.comprar:hover {
+    background-color: white;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+.lua {
+    display: none;
+}
+
+.sol,
+.lua {
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+.dark .lua {
+    display: block;
+}
+
+.dark .sol {
+    display: none;
+}
+
+svg {
+    width: 50px;
+    height: 50px;
+}
+
+.paginacao {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.paginacao p {
+    display: none;
 }
 
 /* Botao estiloso */
@@ -319,6 +469,7 @@ hr {
     padding: 0.8rem 2rem;
     transition: 0.2s;
     border-radius: 6px;
+    cursor: pointer;
 }
 
 .btn-novo:hover {
@@ -385,6 +536,10 @@ hr {
     animation: move 3s infinite;
 }
 
+.mobile-dark {
+    display: none;
+}
+
 @keyframes move {
     0% {
         transform: translateX(0);
@@ -406,5 +561,36 @@ hr {
     }
     100% {
         box-shadow: #27272c;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 420px) {
+    #footer-container-social img {
+        width: 25px;
+    }
+
+    #site-footer {
+        padding: 10px 3px;
+    }
+
+    #footer-container-social {
+        width: 100px;
+    }
+}
+
+@media (max-width: 550px) {
+    .btn-novo-div {
+        display: none;
+    }
+
+    #header-logo a {
+        min-width: 100px;
+    }
+
+    .search {
+        width: 200px;
+    }
+    .mobile-dark {
+        display: flex;
     }
 }
