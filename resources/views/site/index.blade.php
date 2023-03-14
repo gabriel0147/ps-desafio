@@ -68,9 +68,6 @@
                     @endif
                 @endisset
             </div>
-            <div class="paginacao">
-                {{ $produtos->render() }}
-            </div>
         </div>
     </section>
 @endsection

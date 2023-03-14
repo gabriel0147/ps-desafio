@@ -24,7 +24,7 @@ changeThemeBtn.addEventListener("click", function () {
 
 mobileTheme.addEventListener("change", function () {
     document.body.classList.toggle("dark");
-
+    escrita();
     localStorage.removeItem("dark");
 
     if (document.body.classList.contains("dark")) {
@@ -47,9 +47,9 @@ function escrita() {
     } else {
         nomeBtn.innerHTML = "claro";
         document.getElementById("site-header").style.backgroundColor =
-            "#80ff80";
+            "#5CE086";
         document.getElementById("site-footer").style.backgroundColor =
-            "#80ff80";
+            "#5CE086";
     }
 }
 
