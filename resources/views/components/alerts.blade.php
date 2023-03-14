@@ -1,4 +1,4 @@
-@if ($errors->any())
+{{-- @if ($errors->any())
     <div class="alert alert-danger alert-elevate col-sm-12" style="display: none" role="alert">
         <div class="alert-text" data-type="danger">
             @foreach ($errors->all() as $error)
@@ -6,7 +6,7 @@
             @endforeach
         </div>
     </div>
-@endif
+@endif --}}
 
 @if (Session::has('danger'))
     <div class="alert alert-danger alert-elevate col-sm-12" style="display: none" role="alert">
@@ -28,6 +28,14 @@
     <div class="alert alert-success  col-sm-12" style="display: none" role="alert">
         <div class="alert-text" data-type="success">
             {{ Session::get('success') }}<br>
+        </div>
+    </div>
+@endif
+
+@if (Session::has('errors'))
+    <div class="alert alert-success  col-sm-12" style="display: none" role="alert">
+        <div class="alert-text" data-type="errors">
+            {{ Session::get('errors') }}<br>
         </div>
     </div>
 @endif

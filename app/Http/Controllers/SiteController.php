@@ -42,11 +42,11 @@ class SiteController extends Controller
         $produtos = Produto::find($id);
         $quantidade = $request->quantidade;
         //dd($quantidade);
-        if ($produtos && $produtos->quantidade >= $quantidade) {
+        if ($produtos && $produtos->quantidade >= $quantidade && $quantidade > 0) {
             $produtos->quantidade -= $quantidade;
             $produtos->save();
             return redirect()->back()->with('success', 'Comprar bem sucedida');
         } else
-            return redirect()->back()->with('errors', 'Error');
+            return redirect()->back()->with('errors', 'Falha na compra');
     }
 }
